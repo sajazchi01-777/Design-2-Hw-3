@@ -1,5 +1,9 @@
 import java.util.List;
 
+/**
+ * Guild POJO, contains list of Adventurer objects
+ */
+
 public class Guild
 {
     String name;

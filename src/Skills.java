@@ -1,5 +1,9 @@
 public enum Skills
 {
+    /**
+     * Skills enum
+     */
+
     SWORDSMANSHIP,
     ARCHERY,
     THIEVERY,

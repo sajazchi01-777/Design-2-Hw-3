@@ -1,5 +1,9 @@
 import java.util.List;
 
+/**
+ * Adventurer POJO
+ */
+
 public class Adventurer
 {
     String name;
