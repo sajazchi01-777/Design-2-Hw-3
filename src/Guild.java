@@ -36,4 +36,12 @@ public class Guild
         if (!adventurers.isEmpty())
             this.adventurers = adventurers;
     }
+
+    @Override
+    public String toString()
+    {
+        String info;
+        info = "Name: " + name + " Members: " + adventurers;
+        return info;
+    }
 }

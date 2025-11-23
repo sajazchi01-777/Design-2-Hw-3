@@ -82,4 +82,228 @@ public class main
                 });
     }
 
+    /**
+     * Main, runs the methods above
+     * @param args
+     */
+
+    public static void main(String[] args)
+    {
+        /**
+         * List of adventurers, as well as some random adventurer objects which are added to the array list
+         */
+
+        List<Adventurer> adventurers1 = new ArrayList<>();
+
+
+        adventurers1.add(new Adventurer(
+                "Thorin Ironfist",
+                35,
+                "Warrior",
+                250.0,
+                List.of(Skills.SWORDSMANSHIP, Skills.HORSEMANSHIP, Skills.BLACKSMITHING)
+        ));
+
+        adventurers1.add(new Adventurer(
+                "Elira Moonwhisper",
+                28,
+                "Wizard",
+                540.5,
+                List.of(Skills.RUNECRAFTING, Skills.HEALING)
+        ));
+
+        adventurers1.add(new Adventurer(
+                "Silas Quickstep",
+                22,
+                "Rogue",
+                310.25,
+                List.of(Skills.THIEVERY, Skills.STEALTH, Skills.ARCHERY)
+        ));
+
+        adventurers1.add(new Adventurer(
+                "Marwyn Starseer",
+                41,
+                "Wizard",
+                890.0,
+                List.of(Skills.NECROMANCY, Skills.RUNECRAFTING)
+        ));
+
+        adventurers1.add(new Adventurer(
+                "Rowan Hawkeye",
+                30,
+                "Ranger",
+                415.75,
+                List.of(Skills.ARCHERY, Skills.STEALTH, Skills.HORSEMANSHIP)
+        ));
+
+        adventurers1.add(new Adventurer(
+                "Brakka Stoneforge",
+                50,
+                "Blacksmith",
+                150.0,
+                List.of(Skills.BLACKSMITHING, Skills.SWORDSMANSHIP)
+        ));
+
+        adventurers1.add(new Adventurer(
+                "Liora Dawnsong",
+                33,
+                "Cleric",
+                605.80,
+                List.of(Skills.HEALING, Skills.RUNECRAFTING)
+        ));
+
+        adventurers1.add(new Adventurer(
+                "Vex the Meme Lord",
+                19,
+                "Bard",
+                9999.99,
+                List.of(Skills.MEMECRAFTING, Skills.STEALTH)
+        ));
+
+        adventurers1.add(new Adventurer(
+                "Drazhul the Pale",
+                67,
+                "Necromancer",
+                1200.0,
+                List.of(Skills.NECROMANCY, Skills.RUNECRAFTING)
+        ));
+
+        adventurers1.add(new Adventurer(
+                "Kaela Swiftwind",
+                26,
+                "Rogue",
+                455.40,
+                List.of(Skills.STEALTH, Skills.THIEVERY, Skills.ARCHERY)
+        ));
+
+        /**
+         * Adding the list of adventurers to the newly created Guild object
+         */
+
+        Guild g1 = new Guild("Astralis", adventurers1);
+
+        /**
+         * Creating a second list of adventurer objects
+         */
+
+        List<Adventurer> adventurers2 = new ArrayList<>();
+
+        adventurers2.add(new Adventurer(
+                "Garruk Bearbreaker",
+                39,
+                "Warrior",
+                330.0,
+                List.of(Skills.SWORDSMANSHIP, Skills.HORSEMANSHIP)
+        ));
+
+        adventurers2.add(new Adventurer(
+                "Seraphine Willowglen",
+                24,
+                "Wizard",
+                720.0,
+                List.of(Skills.HEALING, Skills.RUNECRAFTING)
+        ));
+
+        adventurers2.add(new Adventurer(
+                "Nox Shadowstep",
+                29,
+                "Rogue",
+                498.2,
+                List.of(Skills.STEALTH, Skills.THIEVERY)
+        ));
+
+        adventurers2.add(new Adventurer(
+                "Alrik Stoneshield",
+                45,
+                "Guardian",
+                275.5,
+                List.of(Skills.SWORDSMANSHIP, Skills.BLACKSMITHING)
+        ));
+
+        adventurers2.add(new Adventurer(
+                "Fayra Windpetal",
+                31,
+                "Ranger",
+                610.75,
+                List.of(Skills.ARCHERY, Skills.HORSEMANSHIP, Skills.STEALTH)
+        ));
+
+        adventurers2.add(new Adventurer(
+                "Tiberius Graycloak",
+                52,
+                "Necromancer",
+                1380.0,
+                List.of(Skills.NECROMANCY, Skills.RUNECRAFTING)
+        ));
+
+        adventurers2.add(new Adventurer(
+                "Merrin Brightbrew",
+                36,
+                "Cleric",
+                480.4,
+                List.of(Skills.HEALING)
+        ));
+
+        adventurers2.add(new Adventurer(
+                "Orlo Sparksprocket",
+                32,
+                "Artificer",
+                850.0,
+                List.of(Skills.BLACKSMITHING, Skills.RUNECRAFTING)
+        ));
+
+        adventurers2.add(new Adventurer(
+                "Krell Bloodtide",
+                27,
+                "Berserker",
+                390.0,
+                List.of(Skills.SWORDSMANSHIP)
+        ));
+
+        adventurers2.add(new Adventurer(
+                "Zina Memeweaver",
+                21,
+                "Bard",
+                7777.77,
+                List.of(Skills.MEMECRAFTING, Skills.ARCHERY)
+        ));
+
+        /**
+         * Adding second list of adventurer objects into a second Guild object
+         */
+
+        Guild g2 = new Guild("DreadSpire", adventurers2);
+
+        /**
+         * Making a list of Guild objects and adding the newly created guilds to it
+         */
+
+        List<Guild> guilds = new ArrayList<>();
+        guilds.add(g1);
+        guilds.add(g2);
+
+        /**
+         * Running the methods and displaying the output for those that need it
+         */
+
+        List<Adventurer> filtered = filterAdventurersBySkill(guilds, Skills.SWORDSMANSHIP);
+
+        for (Adventurer a : filtered)
+        {
+            System.out.println(a);
+        }
+
+        groupAdventurersByRole(guilds);
+
+        findAdventurerWithMostSkills(guilds)
+                .ifPresent(a -> System.out.println("Most skilled adventurer: " + a));
+
+        List<Guild> rankedGuilds = rankGuildsByAverageAdventurerAge(guilds);
+        rankedGuilds.forEach(System.out::println);
+
+        skillWiseAdventurerCountMap(guilds);
+
+        bonusGoldEvent(guilds);
+    }
+
 }
