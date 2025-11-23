@@ -286,20 +286,20 @@ public class main
          * Running the methods and displaying the output for those that need it
          */
 
-        List<Adventurer> filtered = filterAdventurersBySkill(guilds, Skills.SWORDSMANSHIP);
+        List<Adventurer> filtered = filterAdventurersBySkill(guilds, Skills.SWORDSMANSHIP); //calls method
 
-        for (Adventurer a : filtered)
+        for (Adventurer a : filtered) //for each adventurer object in the list
         {
-            System.out.println(a);
+            System.out.println(a); //print out the info of the adventurer object
         }
 
         groupAdventurersByRole(guilds);
 
-        findAdventurerWithMostSkills(guilds)
-                .ifPresent(a -> System.out.println("Most skilled adventurer: " + a));
+        findAdventurerWithMostSkills(guilds) //calls method
+                .ifPresent(a -> System.out.println("Most skilled adventurer: " + a)); //If there is an adventurer with the most skills, will display
 
-        List<Guild> rankedGuilds = rankGuildsByAverageAdventurerAge(guilds);
-        rankedGuilds.forEach(System.out::println);
+        List<Guild> rankedGuilds = rankGuildsByAverageAdventurerAge(guilds); //calls method
+        rankedGuilds.forEach(System.out::println); //prints out the guilds ranked
 
         skillWiseAdventurerCountMap(guilds);
 
